@@ -1,0 +1,29 @@
+{
+  "name": "react-link-previewer",
+  "version": "1.0.0",
+  "description": "This is a react app that displays a visual preview and brief description of the link or links passed",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jama5262/react-link-previewer.git"
+  },
+  "keywords": [
+    "express",
+    "cherrio"
+  ],
+  "author": "Jama Mohamed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jama5262/react-link-previewer/issues"
+  },
+  "homepage": "https://github.com/jama5262/react-link-previewer#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
