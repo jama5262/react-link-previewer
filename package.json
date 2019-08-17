@@ -4,7 +4,7 @@
   "description": "This is a react app that displays a visual preview and brief description of the link or links passed",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon index.js",
+    "nodemon": "nodemon --inspect index.js",
     "git": "git checkout server && git pull"
   },
   "repository": {

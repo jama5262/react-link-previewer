@@ -19,12 +19,11 @@ const getHtmlContent = (html) => {
   }
 }
 
-exports.handler = (request) => {
+exports.handler = async (request) => {
   try {
+    await validation.checkForQuery(request.query);
     const urls = Array.from(getUrls(request.query.text));
-    if (urls.length == 0) {
-      return Promise.reject("No urls found");
-    }
+    await validation.checkForUrls(urls);
     const requests = urls.map(async url => {
       const response = await axiosHandler.handler(url);
       let result = getHtmlContent(response.data)

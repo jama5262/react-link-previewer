@@ -10,9 +10,20 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 app.post('/preview', async (req, res) => {
   try {
-    res.status(200).json(await scraperHandler.handler(req));
-  } catch (e) {
-    res.status(404).json("There was an error => " + e);
+    const result = await scraperHandler.handler(req);
+    res.status(200).json({
+      data: {
+        status: 200,
+        result
+      }
+    });
+  } catch ({ status, message }) {
+    res.status(status).json({
+      error: {
+        status: status,
+        message: message
+      }
+    });
   }
 })
 
