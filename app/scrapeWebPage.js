@@ -2,7 +2,7 @@ const getUrls = require('get-urls');
 const cheerio = require('cheerio');
 
 const axiosHandler = require('./axios.js');
-const validation = require('./utils/validation.js');
+const { checkForQuery, checkForUrls, checkForXFrameOptions } = require('./utils/validation.js');
 
 const getHtmlContent = (html) => {
   const $ = cheerio.load(html);
@@ -21,13 +21,13 @@ const getHtmlContent = (html) => {
 
 exports.handler = async (request) => {
   try {
-    await validation.checkForQuery(request.query);
+    await checkForQuery(request.query);
     const urls = Array.from(getUrls(request.query.text));
-    await validation.checkForUrls(urls);
+    await checkForUrls(urls);
     const requests = urls.map(async url => {
       const response = await axiosHandler.handler(url);
       let result = getHtmlContent(response.data)
-      hasXframeOptions = await validation.checkForXFrameOptions(response.headers);
+      hasXframeOptions = await checkForXFrameOptions(response.headers);
       result["url"] = url
       result["hasXframeOptions"] = hasXframeOptions
       return result;
