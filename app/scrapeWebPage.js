@@ -1,6 +1,8 @@
 const getUrls = require('get-urls');
 const cheerio = require('cheerio');
+
 const axiosHandler = require('./axios.js');
+const validation = require('./utils/validation.js');
 
 const getHtmlContent = (html) => {
   const $ = cheerio.load(html);
@@ -17,16 +19,18 @@ const getHtmlContent = (html) => {
   }
 }
 
-exports.handler = (data) => {
+exports.handler = (request) => {
   try {
-    const urls = Array.from(getUrls(data.query.text));
+    const urls = Array.from(getUrls(request.query.text));
     if (urls.length == 0) {
       return Promise.reject("No urls found");
     }
     const requests = urls.map(async url => {
       const response = await axiosHandler.handler(url);
       let result = getHtmlContent(response.data)
+      hasXframeOptions = await validation.checkForXFrameOptions(response.headers);
       result["url"] = url
+      result["hasXframeOptions"] = hasXframeOptions
       return result;
     });
     return Promise.all(requests);
