@@ -8,8 +8,8 @@ const app = express()
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.get('/preview', (req, res) => {
-  res.send(scraperHandler.handler());
+app.post('/preview', (req, res) => {
+  res.send(scraperHandler.handler(req));
 })
 
 app.listen((process.env.PORT), () => console.log(`App started`))
