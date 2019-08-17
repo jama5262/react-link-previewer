@@ -4,7 +4,8 @@
   "description": "This is a react app that displays a visual preview and brief description of the link or links passed",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon index.js"
+    "nodemon": "nodemon index.js",
+    "git": "git checkout server && git pull"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,8 @@
   "homepage": "https://github.com/jama5262/react-link-previewer#readme",
   "dependencies": {
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "get-urls": "^9.1.0"
