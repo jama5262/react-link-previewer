@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "nodemon": "nodemon --inspect index.js",
-    "git": "git checkout server && git pull"
+    "git": "git checkout server && git pull",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,8 @@
     "get-urls": "^9.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   }
 }

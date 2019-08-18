@@ -15,7 +15,30 @@ const getHtmlContent = (html) => {
     favicon: $('link[rel="shortcut icon"]').attr('href'),
     description: getMetatag('description'),
     image: getMetatag('image'),
-    author: getMetatag('author'),
+  }
+}
+
+const scrapeWebsite = async (urls) => {
+  let unknownUrls = [];
+  let knownUrls = [];
+  for (let i = 0; i < urls.length; i++) {
+    try {
+      const response = await axiosHandler.handler(urls[i])
+      let result = getHtmlContent(response.data)
+      hasXframeOptions = await checkForXFrameOptions(response.headers);
+      result["url"] = urls[i]
+      result["successUrl"] = true
+      result["hasXframeOptions"] = hasXframeOptions
+      knownUrls.push(result);
+    } catch (e) {
+      if (e.name == "Unknown URL") {
+        unknownUrls.push(e.url)
+      }
+    }
+  }
+  return {
+    unknownUrls,
+    knownUrls
   }
 }
 
@@ -24,15 +47,7 @@ exports.handler = async (request) => {
     await checkForQuery(request.query);
     const urls = Array.from(getUrls(request.query.text));
     await checkForUrls(urls);
-    const requests = urls.map(async url => {
-      const response = await axiosHandler.handler(url);
-      let result = getHtmlContent(response.data)
-      hasXframeOptions = await checkForXFrameOptions(response.headers);
-      result["url"] = url
-      result["hasXframeOptions"] = hasXframeOptions
-      return result;
-    });
-    return Promise.all(requests);
+    return await scrapeWebsite(urls)
   } catch (e) {
     return Promise.reject(e);
   }
