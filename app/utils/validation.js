@@ -18,7 +18,7 @@ const checkForQuery = async (query) => {
   if(!query.hasOwnProperty("text")) {
     return Promise.reject({
       status: 404,
-      message: "Live Previewer did not receive any url texts"
+      message: "Please make sure to have a valid query in the url, that is the 'text' query"
     });
   }
   return true;
