@@ -4,4 +4,4 @@ node_js:
   - node
 
 script:
-  - npm testCoveralls
+  - npm run testCoveralls
