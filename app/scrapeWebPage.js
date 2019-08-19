@@ -27,12 +27,16 @@ const scrapeWebsite = async (urls) => {
       let result = getHtmlContent(response.data)
       hasXframeOptions = await checkForXFrameOptions(response.headers);
       result["url"] = urls[i]
-      result["successUrl"] = true
       result["hasXframeOptions"] = hasXframeOptions
       knownUrls.push(result);
     } catch (e) {
       if (e.name == "Unknown URL") {
         unknownUrls.push(e.url)
+      } else {
+        return Promise.reject({
+          status: 500,
+          message: e
+        })
       }
     }
   }

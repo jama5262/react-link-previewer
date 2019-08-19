@@ -38,9 +38,18 @@ test('testing the preview with unknown urls', async () => {
   const response = await supertest(app)
     .post('/preview')
     .query({
-      text: "Microsoft’s latest Surface updates are causing CPU and Wi-Fi issues https://www.therge.com/2019/8/15/20807401/microsoft-surface-firmware-updates-wi-fi-problems-cpu-throttling"
+      text: "https://www.unknownurl.com"
     })
   expect(JSON.parse(response.text).data.result.unknownUrls.length).toBeGreaterThan(0)
+}, 30000)
+
+test('testing the preview with xFrameOptions true', async () => {
+  const response = await supertest(app)
+    .post('/preview')
+    .query({
+      text: "https://stackoverflow.com/questions/1168807/how-can-i-add-a-key-value-pair-to-a-javascript-object"
+    })
+  expect(JSON.parse(response.text).data.result.knownUrls[0].hasXframeOptions).toBe(true)
 }, 30000)
 
 test('testing with unknown route', async () => {
