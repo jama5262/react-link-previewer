@@ -43,6 +43,15 @@ test('testing the preview with unknown urls', async () => {
   expect(JSON.parse(response.text).data.result.unknownUrls.length).toBeGreaterThan(0)
 }, 30000)
 
+test('testing the preview with xFrameOptions true', async () => {
+  const response = await supertest(app)
+    .post('/preview')
+    .query({
+      text: "https://stackoverflow.com/questions/1168807/how-can-i-add-a-key-value-pair-to-a-javascript-object"
+    })
+  expect(JSON.parse(response.text).data.result.knownUrls[0].hasXframeOptions).toBe(true)
+}, 30000)
+
 test('testing with unknown route', async () => {
   const response = await supertest(app)
     .post('/unknown')

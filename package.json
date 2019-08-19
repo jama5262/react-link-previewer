@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "nodemon": "nodemon --inspect index.js",
-    "git": "git checkout server && git pull",
-    "test": "jest"
+    "git": "git checkout server && git pull && gl",
+    "testCoveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "testCoverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "get-urls": "^9.1.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.6",
     "jest": "^24.9.0",
     "nodemon": "^1.19.1",
     "supertest": "^4.0.2"
