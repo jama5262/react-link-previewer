@@ -41,7 +41,7 @@ test('testing the preview with unknown urls', async () => {
       text: "Microsoft’s latest Surface updates are causing CPU and Wi-Fi issues https://www.therge.com/2019/8/15/20807401/microsoft-surface-firmware-updates-wi-fi-problems-cpu-throttling"
     })
   expect(JSON.parse(response.text).data.result.unknownUrls.length).toBeGreaterThan(0)
-}, 30000)
+}, 50000)
 
 test('testing the preview with xFrameOptions true', async () => {
   const response = await supertest(app)
