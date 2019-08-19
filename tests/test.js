@@ -38,10 +38,10 @@ test('testing the preview with unknown urls', async () => {
   const response = await supertest(app)
     .post('/preview')
     .query({
-      text: "Microsoft’s latest Surface updates are causing CPU and Wi-Fi issues https://www.therge.com/2019/8/15/20807401/microsoft-surface-firmware-updates-wi-fi-problems-cpu-throttling"
+      text: "https://www.unknownurl.com"
     })
   expect(JSON.parse(response.text).data.result.unknownUrls.length).toBeGreaterThan(0)
-}, 50000)
+}, 30000)
 
 test('testing the preview with xFrameOptions true', async () => {
   const response = await supertest(app)
