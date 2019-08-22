@@ -1,22 +1,30 @@
 import React from 'react'
-import { Layout } from 'antd';
+import { useSelector } from "react-redux";
 
-import { useSelector } from 'react-redux'
+import ListItem from "../components/ListItem"
 
-const { Footer, Sider, Content } = Layout;
+import { Typography , Row, Col } from 'antd';
+const { Title } = Typography;
+
 
 export default function Home() {
 
+  const defaultLinks = useSelector(state => state.defaultLinks)
+
   return (
     <div>
-      <Layout>
-        <Sider>Sider</Sider>
-        <Layout>
-          <Content>Content</Content>
-          <Footer>Footer</Footer>
-        </Layout>
-        <Sider>Sider</Sider>
-      </Layout>
+      <Row>
+        <Col style={{ border: "1px solid black", height: "100vh" }} span={5}>
+          <Title level={3}>Try the following links</Title>
+          <ListItem />
+        </Col>
+        <Col style={{ border: "1px solid black", height: "100vh" }} span={14}>
+        <Title>React Link Previewer</Title>
+        </Col>
+        <Col style={{ border: "1px solid black", height: "100vh" }} span={5}>
+        <Title level={3}>Recent links</Title>
+        </Col>
+      </Row>
     </div>
   )
 }

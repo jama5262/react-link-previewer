@@ -6,9 +6,6 @@ import query from "./queryReducer"
 import recentLinks from "./recentLinksReducer"
 import unknownLinks from "./unknownLinksReducer"
 
-console.log(defaultLinks);
-
-
 export default combineReducers({
   defaultLinks,
   previews,
