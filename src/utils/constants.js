@@ -1,0 +1,6 @@
+export const ADD_QUERY = 'ADD_QUERY'
+export const SWITCH_QUERY = 'SWITCH_QUERY'
+export const CLEAR_QUERY = 'CLEAR_QUERY'
+export const SCRAPE_WEBSITE = 'SCRAPE_WEBSITE'
+export const ADD_RECENTS = 'ADD_RECENTS'
+export const CLEAR_RECENTS = 'CLEAR_RECENTS'

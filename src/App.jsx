@@ -1,22 +1,10 @@
-import React, { Component } from 'react';
-import { Layout } from 'antd';
+import React from 'react';
+import Home from "./pages/Home"
 
-const { Footer, Sider, Content } = Layout;
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Layout>
-          <Sider>Sider</Sider>
-          <Layout>
-            <Content>Content</Content>
-            <Footer>Footer</Footer>
-          </Layout>
-        </Layout>
-      </div>
-    )
-  }
+export default function App() {
+  return (
+    <div>
+      <Home/>
+    </div>
+  )
 }
-
-export default App;
