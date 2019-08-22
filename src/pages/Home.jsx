@@ -1,21 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Layout } from 'antd';
+
+import { useSelector } from 'react-redux'
 
 const { Footer, Sider, Content } = Layout;
 
-export default class Home extends Component {
-  render() {
-    return (
-      <div>
+export default function Home() {
+
+  const j = useSelector(state => state.defaultLinks);
+
+  console.log(j);  
+
+  return (
+    <div>
+      <Layout>
+        <Sider>Sider</Sider>
         <Layout>
-          <Sider>Sider</Sider>
-          <Layout>
-            <Content>Content</Content>
-            <Footer>Footer</Footer>
-          </Layout>
-          <Sider>Sider</Sider>
+          <Content>the user is {j[0].text}</Content>
+          <Footer>Footer</Footer>
         </Layout>
-      </div>
-    )
-  }
+        <Sider>Sider</Sider>
+      </Layout>
+    </div>
+  )
 }
