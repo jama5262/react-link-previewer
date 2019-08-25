@@ -1,13 +1,38 @@
 import React from 'react'
+import { useSelector } from "react-redux";
 
-import { Card } from 'antd';
+import { List, Typography, Icon, Row, Col } from 'antd';
 
-export default function ListItem() {
+export default function ListItem(props) {
+  console.log(props.data);
+
+  const test = (text) => {
+    alert(text);
+  }
+
   return (
-    <Card style={{ width: "100%" }}>
-      <p>Card content</p>
-      <p>Card contentCard contentCard contentCard contentCard content</p>
-      <p>Card content</p>
-    </Card>
+    <div>
+      <List
+        style={{ wordWrap: "break-word" }}
+        size="large"
+        dataSource={props.data}
+        renderItem={item => (
+          <List.Item
+            style={{ padding: "10px" }}>
+            <Row style={{ width: "100%" }}>
+              <div>
+                {item.text}
+              </div>
+              <Row style={{ paddingTop: "15px" }} type="flex" justify="end">
+                <Col>
+                  <Icon onClick={() => test(item.text)} type="swap" style={{ marginRight: 20, fontSize: "17px" }}></Icon>
+                  <Icon type="plus" style={{ marginRight: 20, fontSize: "17px" }}></Icon>
+                </Col>
+              </Row>
+            </Row>
+          </List.Item>
+        )}
+      />
+    </div>
   )
 }

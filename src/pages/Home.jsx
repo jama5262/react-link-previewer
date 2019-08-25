@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import ListItem from "../components/ListItem"
 
-import { Typography , Row, Col } from 'antd';
+import { Button, Typography , Row, Col } from 'antd';
 const { Title } = Typography;
 
 
@@ -14,15 +14,15 @@ export default function Home() {
   return (
     <div>
       <Row>
-        <Col style={{ border: "1px solid black", height: "100vh" }} span={5}>
-          <Title level={3}>Try the following links</Title>
-          <ListItem />
+        <Col style={{ height: "100vh", overflow: "scroll", overflowX: "hidden" }} span={5}>
+          <Title style={{ padding: "10px", textAlign: "center"}} level={3}>Try the following links</Title>
+          <ListItem data={defaultLinks}/>
         </Col>
         <Col style={{ border: "1px solid black", height: "100vh" }} span={14}>
-        <Title>React Link Previewer</Title>
+        <Title style={{ padding: "10px", textAlign: "center"}}>React Link Previewer</Title>
         </Col>
         <Col style={{ border: "1px solid black", height: "100vh" }} span={5}>
-        <Title level={3}>Recent links</Title>
+        <Title style={{ padding: "10px", textAlign: "center"}} level={3}>Recent links</Title>
         </Col>
       </Row>
     </div>
