@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from "react-redux";
 
 import { List, Typography, Icon, Row, Col } from 'antd';
+const { Text } = Typography;
 
 export default function ListItem(props) {
   console.log(props.data);
@@ -21,7 +22,7 @@ export default function ListItem(props) {
             style={{ padding: "10px" }}>
             <Row style={{ width: "100%" }}>
               <div>
-                {item.text}
+                <Text strong>{item.text}</Text>
               </div>
               <Row style={{ paddingTop: "15px" }} type="flex" justify="end">
                 <Col>
