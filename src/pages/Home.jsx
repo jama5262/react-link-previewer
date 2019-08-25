@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from "react-redux";
 
 import ListItem from "../components/ListItem"
+import TextInput from "../components/TextInput"
 
 import { Button, Typography, Row, Col } from 'antd';
 const { Title } = Typography;
@@ -19,8 +20,13 @@ export default function Home() {
           <Title style={{ padding: "10px", textAlign: "center" }} level={3}>Try the following links</Title>
           <ListItem data={defaultLinks} />
         </Col>
-        <Col style={{ height: "100vh" }} span={14}>
+        <Col style={{ paddingTop: "70px", height: "100vh", overflow: "scroll", overflowX: "hidden" }} span={14}>
           <Title style={{ padding: "10px", textAlign: "center" }}>React Link Previewer</Title>
+          <Row>
+            <Col span={16} offset={4}>
+              <TextInput/>
+            </Col>
+          </Row>
         </Col>
         <Col style={{ height: "100vh", overflow: "scroll", overflowX: "hidden" }} span={5}>
           <Title style={{ padding: "10px", textAlign: "center" }} level={3}>Recent links</Title>
