@@ -24,7 +24,19 @@ export default function Home() {
           <Title style={{ padding: "10px", textAlign: "center" }}>React Link Previewer</Title>
           <Row>
             <Col span={16} offset={4}>
-              <TextInput/>
+              <TextInput />
+            </Col>
+          </Row>
+          <Row style={{ marginTop: "20px"}}>
+            <Col xl={{ span: 10, offset: 7 }} lg={{ span: 10, offset: 7 }}>
+              <Row type="flex" justify="space-around">
+                <Col>
+                  <Button>Clear</Button>
+                </Col>
+                <Col>
+                  <Button type="primary">Scrape</Button>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Col>
