@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import ListItem from "../components/ListItem"
 import TextInput from "../components/TextInput"
+import Preview from "../components/Previews"
 
 import { Button, Typography, Row, Col } from 'antd';
 const { Title } = Typography;
@@ -12,6 +13,7 @@ export default function Home() {
 
   const defaultLinks = useSelector(state => state.defaultLinks)
   const recentLinks = useSelector(state => state.recentLinks)
+  const previews = useSelector(state => state.previews)
 
   return (
     <div>
@@ -27,7 +29,7 @@ export default function Home() {
               <TextInput />
             </Col>
           </Row>
-          <Row style={{ marginTop: "20px"}}>
+          <Row style={{ margin: "20px 0 25px 0"}}>
             <Col xl={{ span: 10, offset: 7 }} lg={{ span: 10, offset: 7 }}>
               <Row type="flex" justify="space-around">
                 <Col>
@@ -37,6 +39,11 @@ export default function Home() {
                   <Button type="primary">Scrape</Button>
                 </Col>
               </Row>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={16} offset={4}>
+              <Preview data={previews}/>
             </Col>
           </Row>
         </Col>
