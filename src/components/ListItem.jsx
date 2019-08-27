@@ -1,12 +1,10 @@
 import React from 'react'
 import { useSelector } from "react-redux";
 
-import { List, Typography, Icon, Row, Col, Button, Empty } from 'antd';
+import { List, Typography, Icon, Row, Col } from 'antd';
 const { Text } = Typography;
 
 export default function ListItem(props) {
-  console.log(props.data);
-
   const test = (text) => {
     alert(text);
   }

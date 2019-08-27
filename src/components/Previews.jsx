@@ -3,7 +3,7 @@ import React from 'react'
 import Iframe from "./Iframe"
 
 import { List, Card, Row, Col, Avatar, Typography, Tag, Popover } from 'antd';
-const { Paragraph } = Typography;
+const { Title, Paragraph } = Typography;
 
 export default function Previews(props) {
 
@@ -14,6 +14,7 @@ export default function Previews(props) {
   }
   return (
     <div>
+      <Title level={4}>Previews</Title>
       <List
         style={{ wordWrap: "break-word" }}
         size="large"

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ListItem from "../components/ListItem"
 import TextInput from "../components/TextInput"
 import Preview from "../components/Previews"
+import UnknownLinks from "../components/UnknownLinks"
 
 import { Button, Typography, Row, Col } from 'antd';
 const { Title } = Typography;
@@ -14,6 +15,7 @@ export default function Home() {
   const defaultLinks = useSelector(state => state.defaultLinks)
   const recentLinks = useSelector(state => state.recentLinks)
   const previews = useSelector(state => state.previews)
+  const unknownLinks = useSelector(state => state.unknownLinks)
 
   return (
     <div>
@@ -43,6 +45,8 @@ export default function Home() {
           </Row>
           <Row>
             <Col span={16} offset={4}>
+              <UnknownLinks data={unknownLinks}/>
+              <div style={{paddingTop: "10px"}}></div>
               <Preview data={previews}/>
             </Col>
           </Row>

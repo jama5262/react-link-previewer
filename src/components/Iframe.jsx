@@ -36,7 +36,7 @@ export default function Iframe(props) {
           </div>
         }
         extra={[
-          <Button type="primary" onClick={ () => openWebsite(props.data.url) }>
+          <Button key="1" type="primary" onClick={ () => openWebsite(props.data.url) }>
             <Icon type="select" />
             Visit Website
           </Button>,
