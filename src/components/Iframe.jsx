@@ -1,13 +1,18 @@
 import React from 'react'
 
-import { Result, Button, Avatar } from 'antd';
+import { Result, Button, Avatar, Icon, BackTop } from 'antd';
 
 export default function Iframe(props) {
 
-  console.log(props.data);
-  
+  const getHostUrl = (url) => {
+    return url.match(/^(.*:)\/\/([A-Za-z0-9\-\.]+)(:[0-9]+)?(.*)$/)[2]
+  }
 
-  const hasXframeOptionsExists = (
+  const openWebsite = (url) => {
+    window.open(url, '_blank')
+  }
+
+  const hasNoXframeOptions = (
     <div>
       <iframe
         title="Inline Frame"
@@ -18,20 +23,27 @@ export default function Iframe(props) {
     </div>
   );
 
-  const hasXframeOptionsDoesExists = (
-    <div width="900" height="450">
+  const hasXframeOptions = (
+    <div>
       <Result
-        icon={<Avatar scr={props.data.favicon} shape="square" size={64} icon="close" />}
-        title="Successfully Purchased Cloud Server ECS!"
-        subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
-        extra={[ 
-          <Button type="primary" key="console">
-            Go Console
+        style={{width: "900px"}}
+        icon={<Avatar src={props.data.favicon} style={{ padding: "5px", color: "#000", backgroundColor: '#FFF' }} size="large" icon="close" />}
+        title={
+          <div>
+            <BackTop/>
+            <strong style={{ color: "#009688" }}> { getHostUrl(props.data.url) } </strong>
+            can not be previewed here, please visit the original website to view its content
+          </div>
+        }
+        extra={[
+          <Button type="primary" onClick={ () => openWebsite(props.data.url) }>
+            <Icon type="select" />
+            Visit Website
           </Button>,
         ]}
       />
     </div>
   );
 
-  return props.data.hasXframeOptions ? hasXframeOptionsDoesExists : hasXframeOptionsExists
+  return props.data.hasXframeOptions ? hasXframeOptions : hasNoXframeOptions
 }

@@ -7,6 +7,11 @@ const { Paragraph } = Typography;
 
 export default function Previews(props) {
 
+  if (props.data.length === 0) {
+    return (
+      <div></div>
+    )
+  }
   return (
     <div>
       <List
@@ -18,7 +23,7 @@ export default function Previews(props) {
           <List.Item
             style={{ padding: "10px" }}>
             <Popover placement="top" content={
-              <Iframe data={item}/>
+              <Iframe data={item} />
             }>
               <Card hoverable style={{ borderRadius: "20px", width: "100%", height: "120px" }}>
                 <Row>
