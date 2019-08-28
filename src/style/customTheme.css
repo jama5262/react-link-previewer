@@ -6,21 +6,6 @@ img {
   object-fit: cover
 }
 
-.ant-btn-primary {
-  background-color: #009688;
-  border-color: #009688;
-}
-
-.ant-btn-primary:focus {
-  background-color: #009688;
-  border-color: #009688;
-}
-
-.ant-btn-primary:hover {
-  background-color: #4DB6AC;
-  border-color: #4DB6AC;
-}
-
 .ant-card-body {
   padding: 0
 }

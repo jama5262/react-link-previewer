@@ -22,8 +22,8 @@ export default function UnknownLinks(props) {
         renderItem={item => (
           <List.Item
             style={{ padding: "10px" }}>
-            <Tag style={{ padding: "2px 15px", borderRadius: "20px", width: "100%" }} color='#B2DFDB'>
-            <Paragraph style={{ margin: "3px 0 0 0", color: '#009688' }} ellipsis strong>{item}</Paragraph>
+            <Tag style={{ padding: "2px 15px", borderRadius: "20px", width: "100%" }} color='#BBDEFB'>
+            <Paragraph style={{ margin: "3px 0 0 0", color: '#1890ff' }} ellipsis strong>{item}</Paragraph>
             </Tag>
           </List.Item>
         )}>

@@ -31,7 +31,7 @@ export default function Iframe(props) {
         title={
           <div>
             <BackTop/>
-            <strong style={{ color: "#009688" }}> { getHostUrl(props.data.url) } </strong>
+            <strong style={{ color: "#1890ff" }}> { getHostUrl(props.data.url) } </strong>
             can not be previewed here, please visit the original website to view its content
           </div>
         }
