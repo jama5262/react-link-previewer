@@ -1,5 +1,5 @@
 const initialState = ""
 
-export default (state=initialState, action) => {
+export const query = (state=initialState, action) => {
   return state
 }

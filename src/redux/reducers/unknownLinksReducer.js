@@ -1,5 +1,8 @@
-const initialState = []
+const initialState = [
+  "http://unknownurl.com",
+  "http://unknownurl.com"
+]
 
-export default (state=initialState, action) => {
+export const unknownLinks = (state=initialState, action) => {
   return state
 }

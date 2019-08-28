@@ -21,6 +21,6 @@ const initialState = [
     }
   ]
 
-export default (state=initialState, action) => {
+export const defaultLinks = (state=initialState, action) => {
   return state
 }
