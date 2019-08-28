@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 
+import { openLeftDrawerAction } from "../redux/actions"
+import { openRightDrawerAction } from "../redux/actions"
+
 import { ListItem } from "../components/ListItem"
 import { TextInput } from "../components/TextInput"
 import { Previews } from "../components/Previews"
@@ -42,11 +45,11 @@ export const Home = () => {
   }
 
   const openLeftDrawer = () => {
-    dispatch({ type: "OPEN_LEFT_DRAWER" })
+    dispatch(openLeftDrawerAction())
   }
 
   const openRightDrawer = () => {
-    dispatch({ type: "OPEN_RIGHT_DRAWER" })
+    dispatch(openRightDrawerAction())
   }
 
   return (
