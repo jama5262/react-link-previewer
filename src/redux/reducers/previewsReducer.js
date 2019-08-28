@@ -21,6 +21,6 @@ const initialState = [
   }
 ]
 
-export default (state = initialState, action) => {
+export const previews = (state = initialState, action) => {
   return state
 }

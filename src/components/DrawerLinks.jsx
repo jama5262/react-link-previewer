@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux";
 
-import ListItem from "../components/ListItem"
+import { ListItem } from "../components/ListItem"
 
 import { Drawer } from 'antd';
 
-export default function DrawerLinks() {
+export const DrawerLinks = () => {
 
   const defaultLinks = useSelector(state => state.defaultLinks)
   const recentLinks = useSelector(state => state.recentLinks)

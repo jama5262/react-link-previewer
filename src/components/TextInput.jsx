@@ -3,7 +3,7 @@ import React from 'react'
 import { Input } from 'antd';
 const { TextArea } = Input;
 
-export default function TextInput() {
+export const TextInput = () => {
   return (
     <div>
       <TextArea

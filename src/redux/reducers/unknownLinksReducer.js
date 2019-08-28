@@ -3,6 +3,6 @@ const initialState = [
   "http://unknownurl.com"
 ]
 
-export default (state=initialState, action) => {
+export const unknownLinks = (state=initialState, action) => {
   return state
 }

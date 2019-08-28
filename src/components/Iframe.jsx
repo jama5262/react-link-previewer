@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Result, Button, Avatar, Icon, BackTop } from 'antd';
 
-export default function Iframe(props) {
+export const Iframe = (props) => {
 
   const getHostUrl = (url) => {
-    return url.match(/^(.*:)\/\/([A-Za-z0-9\-\.]+)(:[0-9]+)?(.*)$/)[2]
+    return url.match(/^(.*:)\/\/([A-Za-z0-9\-.]+)(:[0-9]+)?(.*)$/)[2]
   }
 
   const openWebsite = (url) => {
@@ -18,7 +18,7 @@ export default function Iframe(props) {
         title="Inline Frame"
         width="900"
         height="450"
-        src={props.data.url}>
+        src={ props.data.url }>
       </iframe>
     </div>
   );
@@ -26,8 +26,8 @@ export default function Iframe(props) {
   const hasXframeOptions = (
     <div>
       <Result
-        style={{width: "900px"}}
-        icon={<Avatar src={props.data.favicon} style={{ padding: "5px", color: "#000", backgroundColor: '#FFF' }} size="large" icon="close" />}
+        style={{ width: "900px" }}
+        icon={ <Avatar src={ props.data.favicon } style={{ padding: "5px", color: "#000", backgroundColor: '#FFF' }} size="large" icon="close" />}
         title={
           <div>
             <BackTop/>
