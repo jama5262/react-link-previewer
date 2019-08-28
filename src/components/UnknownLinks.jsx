@@ -1,12 +1,15 @@
 import React from 'react'
+import { useSelector } from "react-redux";
 
 import { Typography, List, Tag } from 'antd';
 const { Title, Paragraph } = Typography;
 const { Item } = List
 
-export const UnknownLinks = (props) => {
+export const UnknownLinks = () => {
 
-  if (props.data.length === 0) {
+  const unknownLinks = useSelector(state => state.unknownLinks)
+
+  if (unknownLinks.data.length === 0) {
     return (
       <div></div>
     )
@@ -18,7 +21,7 @@ export const UnknownLinks = (props) => {
         style={{ wordWrap: "break-word" }}
         size="large"
         split={ false }
-        dataSource={ props.data }
+        dataSource={ unknownLinks.data }
         renderItem={ item => (
           <Item
             style={{ padding: "10px" }}>

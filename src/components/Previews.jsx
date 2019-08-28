@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from "react-redux";
 
 import { Iframe } from "./Iframe"
 
@@ -6,9 +7,11 @@ import { List, Card, Row, Col, Avatar, Typography, Tag, Popover } from 'antd';
 const { Title, Paragraph } = Typography;
 const { Item } = List
 
-export const Previews = (props) => {
+export const Previews = () => {
 
-  if (props.data.length === 0) {
+  const previews = useSelector(state => state.previews)
+
+  if (previews.data.length === 0) {
     return (
       <div></div>
     )
@@ -20,7 +23,7 @@ export const Previews = (props) => {
         style={{ wordWrap: "break-word" }}
         size="large"
         split={ false }
-        dataSource={ props.data }
+        dataSource={ previews.data }
         renderItem={ item => (
           <Item
             style={{ padding: "10px" }}>

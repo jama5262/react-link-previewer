@@ -8,6 +8,7 @@ const { TextArea } = Input;
 
 export const TextInput = () => {
 
+  const query = useSelector((state) => state.query)
   const dispatch = useDispatch()
 
   const changeQuery = (value) => {
@@ -17,6 +18,7 @@ export const TextInput = () => {
   return (
     <div>
       <TextArea
+        value={ query.text }
         onChange={ (e) => changeQuery(e.target.value) }
         placeholder="Add link to preview"
         autosize={{ minRows: 5, maxRows: 10 }}

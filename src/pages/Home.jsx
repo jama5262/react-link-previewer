@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 
-import { openLeftDrawerAction } from "../redux/actions"
+import { openLeftDrawerAction, clearQueryAction } from "../redux/actions"
 import { openRightDrawerAction } from "../redux/actions"
 
 import { ListItem } from "../components/ListItem"
@@ -18,8 +18,6 @@ export const Home = () => {
 
   const defaultLinks = useSelector(state => state.defaultLinks)
   const recentLinks = useSelector(state => state.recentLinks)
-  const previews = useSelector(state => state.previews)
-  const unknownLinks = useSelector(state => state.unknownLinks)
 
   const dispatch = useDispatch()
 
@@ -52,6 +50,10 @@ export const Home = () => {
     dispatch(openRightDrawerAction())
   }
 
+  const clearQuery = () => {
+    dispatch(clearQueryAction())
+  }
+
   return (
     <div>
       <Row>
@@ -78,7 +80,7 @@ export const Home = () => {
             <Col md={{ span: 8, offset: 8 }} xl={{ span: 10, offset: 7 }} lg={{ span: 10, offset: 7 }}>
               <Row type="flex" justify="space-around">
                 <Col>
-                  <Button>Clear</Button>
+                  <Button onClick={ () => clearQuery() }>Clear</Button>
                 </Col>
                 <Col>
                   <Button type="primary">Scrape</Button>
@@ -88,9 +90,9 @@ export const Home = () => {
           </Row>
           <Row>
             <Col span={ 16 } offset={ 4 }>
-              <UnknownLinks data={ unknownLinks } />
+              <UnknownLinks />
               <div style={{ paddingTop: "20px" }}></div>
-              <Previews data={ previews } />
+              <Previews />
             </Col>
           </Row>
         </Col>

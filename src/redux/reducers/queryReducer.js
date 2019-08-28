@@ -7,6 +7,9 @@ export const query = (state=initialState, action) => {
     case "ADD_QUERY":
       state = { ...state, text: action.text }
       break;
+    case "CLEAR_QUERY":
+      state = { ...state, text: "" }
+      break;
     default:
       break;
   }
