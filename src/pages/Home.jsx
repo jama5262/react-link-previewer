@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 
-import { openLeftDrawerAction, clearQueryAction } from "../redux/actions"
-import { openRightDrawerAction } from "../redux/actions"
+import { openLeftDrawerAction, openRightDrawerAction, clearQueryAction } from "../redux/actions"
 
 import { ListItem } from "../components/ListItem"
 import { TextInput } from "../components/TextInput"

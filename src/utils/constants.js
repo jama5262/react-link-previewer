@@ -1,5 +1,6 @@
 export const ADD_QUERY = 'ADD_QUERY'
-export const SWITCH_QUERY = 'SWITCH_QUERY'
+export const SWAP_QUERY = 'SWAP_QUERY'
+export const CONCATENATE_QUERY = 'CONCATENATE_QUERY'
 export const CLEAR_QUERY = 'CLEAR_QUERY'
 export const SCRAPE_WEBSITE = 'SCRAPE_WEBSITE'
 export const ADD_RECENTS = 'ADD_RECENTS'
