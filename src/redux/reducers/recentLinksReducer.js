@@ -1,10 +1,18 @@
+import * as types from "../../utils/constants/actionConstants"
+
 const initialState = []
 
 export const recentLinks = (state = initialState, action) => {
   switch (action.type) {
-    case "CLEAR_RECENT_LINKS":
-      return state
+    case types.ADD_RECENTS:
+      state = [ ...state ]
+      state.push({
+        id: state.length + 1,
+        text: action.text
+      })
+      break
     default:
-      return state
+      break
   }
+  return state
 }

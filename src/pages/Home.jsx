@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 
+import { openLeftDrawerAction, openRightDrawerAction, clearQueryAction, scrapeWebsiteAction } from "../redux/actions"
+
 import { ListItem } from "../components/ListItem"
 import { TextInput } from "../components/TextInput"
 import { Previews } from "../components/Previews"
@@ -15,8 +17,7 @@ export const Home = () => {
 
   const defaultLinks = useSelector(state => state.defaultLinks)
   const recentLinks = useSelector(state => state.recentLinks)
-  const previews = useSelector(state => state.previews)
-  const unknownLinks = useSelector(state => state.unknownLinks)
+  const loading = useSelector(state => state.loading.showLoading)
 
   const dispatch = useDispatch()
 
@@ -41,12 +42,20 @@ export const Home = () => {
     }
   }
 
+  const scrapeWebsite = () => {
+    dispatch(scrapeWebsiteAction())
+  }
+
   const openLeftDrawer = () => {
-    dispatch({ type: "OPEN_LEFT_DRAWER" })
+    dispatch(openLeftDrawerAction())
   }
 
   const openRightDrawer = () => {
-    dispatch({ type: "OPEN_RIGHT_DRAWER" })
+    dispatch(openRightDrawerAction())
+  }
+
+  const clearQuery = () => {
+    dispatch(clearQueryAction())
   }
 
   return (
@@ -56,7 +65,7 @@ export const Home = () => {
           <Title style={{ padding: "20px 10px", textAlign: "center" }} level={ 3 }>Try the following links</Title>
           <ListItem data={ defaultLinks } />
         </Col>
-        <Col style={{ paddingTop: "20px", height: "100vh", overflow: "scroll", overflowX: "hidden" }} xs={ 24 } lg={ 14 }>
+        <Col style={{ paddingBottom: "50px", paddingTop: "20px", height: "100vh", overflow: "scroll", overflowX: "hidden" }} xs={ 24 } lg={ 14 }>
           <Row type="flex" justify="space-between">
             <Col className="linkMenu">
               <Icon onClick={ () => openLeftDrawer() } style={{ fontSize: "30px", paddingLeft: "30px" }} type="menu" />
@@ -75,19 +84,19 @@ export const Home = () => {
             <Col md={{ span: 8, offset: 8 }} xl={{ span: 10, offset: 7 }} lg={{ span: 10, offset: 7 }}>
               <Row type="flex" justify="space-around">
                 <Col>
-                  <Button>Clear</Button>
+                  <Button onClick={ () => clearQuery() }>Clear</Button>
                 </Col>
                 <Col>
-                  <Button type="primary">Scrape</Button>
+                  <Button loading={ loading } onClick={ () => scrapeWebsite() } type="primary">Scrape</Button>
                 </Col>
               </Row>
             </Col>
           </Row>
           <Row>
             <Col span={ 16 } offset={ 4 }>
-              <UnknownLinks data={ unknownLinks } />
+              <UnknownLinks />
               <div style={{ paddingTop: "20px" }}></div>
-              <Previews data={ previews } />
+              <Previews />
             </Col>
           </Row>
         </Col>

@@ -1,8 +1,19 @@
-const initialState = [
-  "http://unknownurl.com",
-  "http://unknownurl.com"
-]
+import * as types from "../../utils/constants/actionConstants"
 
-export const unknownLinks = (state=initialState, action) => {
+const initialState = {
+  data: []
+}
+
+export const unknownLinks = (state = initialState, action) => {
+  switch (action.type) {
+    case types.ADD_UNKNOWN_URLS:
+      state = { ...state, data: action.unknownUrls }
+      break;
+    case types.CLEAR_QUERY:
+      state = { ...state, data: [] }
+      break;
+    default:
+      break;
+  }
   return state
 }
