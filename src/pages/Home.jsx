@@ -9,7 +9,7 @@ import { Previews } from "../components/Previews"
 import { UnknownLinks } from "../components/UnknownLinks"
 import { DrawerLinks } from "../components/DrawerLinks"
 
-import { Button, Typography, Row, Col, Icon, message } from 'antd';
+import { Button, Typography, Row, Col, Icon } from 'antd';
 const { Title } = Typography;
 
 

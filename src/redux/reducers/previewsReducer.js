@@ -10,7 +10,7 @@ export const previews = (state = initialState, action) => {
       state = { ...state, data: action.previews }
       break;
     case types.CLEAR_QUERY:
-      state = { ...state, data: []}
+      state = { ...state, data: [] }
       break;
     default:
       break;

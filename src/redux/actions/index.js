@@ -1,5 +1,7 @@
 import axios from "axios"
 
+import { message } from 'antd';
+
 import { BASE_URL } from "../../utils/constants/baseUrlConstant"
 import * as types from "../../utils/constants/actionConstants"
 
@@ -27,13 +29,13 @@ export const scrapeWebsiteAction = () => {
       }
     })
     .then((response) => {
-      console.log(response.data.data.result);
       dispatch(addPreviewAction(response.data.data.result.knownUrls))
       dispatch(addUnknownUrlsAction(response.data.data.result.unknownUrls))
+      message.success("Success")
     })
     .catch((error) => {
       console.log(error.response.data)
-
+      message.error(error.response.data.error.message)
     })
   }
 }
