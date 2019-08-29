@@ -1,0 +1,1 @@
+{"version":3,"sources":["customTheme.css"],"names":[],"mappings":"AAAA,EACE,kCACF,CAEA,IACE,gBACF,CAEA,eACE,SACF","file":"main.6778fd88.chunk.css","sourcesContent":["* {\r\n  font-family: 'Lexend Deca', sans-serif;\r\n}\r\n\r\nimg {\r\n  object-fit: cover\r\n}\r\n\r\n.ant-card-body {\r\n  padding: 0\r\n}"]}
