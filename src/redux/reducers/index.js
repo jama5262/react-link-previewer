@@ -6,6 +6,7 @@ import { query } from "./queryReducer"
 import { recentLinks } from "./recentLinksReducer"
 import { unknownLinks } from "./unknownLinksReducer"
 import { drawerData } from "./triggerDrawerReducer"
+import { loading } from "./loadingReducer"
 
 export const reducer = combineReducers({
   defaultLinks,
@@ -14,4 +15,5 @@ export const reducer = combineReducers({
   recentLinks,
   unknownLinks,
   drawerData,
+  loading
 });

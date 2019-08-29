@@ -17,6 +17,7 @@ export const Home = () => {
 
   const defaultLinks = useSelector(state => state.defaultLinks)
   const recentLinks = useSelector(state => state.recentLinks)
+  const loading = useSelector(state => state.loading.showLoading)
 
   const dispatch = useDispatch()
 
@@ -86,7 +87,7 @@ export const Home = () => {
                   <Button onClick={ () => clearQuery() }>Clear</Button>
                 </Col>
                 <Col>
-                  <Button onClick={ () => scrapeWebsite() } type="primary">Scrape</Button>
+                  <Button loading={ loading } onClick={ () => scrapeWebsite() } type="primary">Scrape</Button>
                 </Col>
               </Row>
             </Col>

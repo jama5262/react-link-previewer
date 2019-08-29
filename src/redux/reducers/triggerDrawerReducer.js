@@ -1,3 +1,5 @@
+import * as types from "../../utils/constants/actionConstants"
+
 const initialState = {
   showDrawer: false,
   drawerDirection: "left"
@@ -5,13 +7,13 @@ const initialState = {
 
 export const drawerData = (state=initialState, action) => {
   switch (action.type) {
-    case "OPEN_LEFT_DRAWER":
+    case types.OPEN_LEFT_DRAWER:
       state = { ...state, showDrawer: true, drawerDirection: "left" }
       break;
-    case "OPEN_RIGHT_DRAWER":
+    case types.OPEN_RIGHT_DRAWER:
       state = { ...state, showDrawer: true, drawerDirection: "right" }
       break;
-    case "CLOSE_DRAWER":
+    case types.CLOSE_DRAWER:
       state = { ...state, showDrawer: false }
       break;
     default:
