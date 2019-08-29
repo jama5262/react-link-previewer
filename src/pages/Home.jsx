@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 
-import { openLeftDrawerAction, openRightDrawerAction, clearQueryAction } from "../redux/actions"
+import { openLeftDrawerAction, openRightDrawerAction, clearQueryAction, scrapeWebsiteAction } from "../redux/actions"
 
 import { ListItem } from "../components/ListItem"
 import { TextInput } from "../components/TextInput"
@@ -9,7 +9,7 @@ import { Previews } from "../components/Previews"
 import { UnknownLinks } from "../components/UnknownLinks"
 import { DrawerLinks } from "../components/DrawerLinks"
 
-import { Button, Typography, Row, Col, Icon } from 'antd';
+import { Button, Typography, Row, Col, Icon, message } from 'antd';
 const { Title } = Typography;
 
 
@@ -39,6 +39,10 @@ export const Home = () => {
     } else if (window.innerWidth >= 992) {
       changeDisplayClass("none")
     }
+  }
+
+  const scrapeWebsite = () => {
+    dispatch(scrapeWebsiteAction())
   }
 
   const openLeftDrawer = () => {
@@ -82,7 +86,7 @@ export const Home = () => {
                   <Button onClick={ () => clearQuery() }>Clear</Button>
                 </Col>
                 <Col>
-                  <Button type="primary">Scrape</Button>
+                  <Button onClick={ () => scrapeWebsite() } type="primary">Scrape</Button>
                 </Col>
               </Row>
             </Col>

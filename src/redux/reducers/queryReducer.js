@@ -1,19 +1,21 @@
+import * as types from "../../utils/constants/actionConstants"
+
 const initialState = {
   text: ""
 }
 
-export const query = (state=initialState, action) => {
+export const query = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_QUERY":
+    case types.ADD_QUERY:
       state = { ...state, text: action.text }
       break;
-    case "CLEAR_QUERY":
+    case types.CLEAR_QUERY:
       state = { ...state, text: "" }
       break;
-    case "SWAP_QUERY":
+    case types.SWAP_QUERY:
       state = { ...state, text: action.text }
       break;
-    case "CONCATENATE_QUERY":
+    case types.CONCATENATE_QUERY:
       state = { ...state, text: state.text + " " + action.text }
       break;
     default:
