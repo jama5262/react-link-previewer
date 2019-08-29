@@ -64,7 +64,7 @@ export const Home = () => {
           <Title style={{ padding: "20px 10px", textAlign: "center" }} level={ 3 }>Try the following links</Title>
           <ListItem data={ defaultLinks } />
         </Col>
-        <Col style={{ paddingTop: "20px", height: "100vh", overflow: "scroll", overflowX: "hidden" }} xs={ 24 } lg={ 14 }>
+        <Col style={{ paddingBottom: "50px", paddingTop: "20px", height: "100vh", overflow: "scroll", overflowX: "hidden" }} xs={ 24 } lg={ 14 }>
           <Row type="flex" justify="space-between">
             <Col className="linkMenu">
               <Icon onClick={ () => openLeftDrawer() } style={{ fontSize: "30px", paddingLeft: "30px" }} type="menu" />

@@ -8,12 +8,12 @@ export const previews = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_PREVIEW:
       state = { ...state, data: action.previews }
-      break;
+      break
     case types.CLEAR_QUERY:
       state = { ...state, data: [] }
-      break;
+      break
     default:
-      break;
+      break
   }
   return state
 }

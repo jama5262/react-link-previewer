@@ -12,7 +12,6 @@ export const clearQueryAction = () => ({ type: types.CLEAR_QUERY })
 export const addPreviewAction = previews => ({ type: types.ADD_PREVIEW, previews })
 export const addUnknownUrlsAction = unknownUrls => ({ type: types.ADD_UNKNOWN_URLS, unknownUrls })
 export const addRecentsAction = text => ({ type: types.ADD_RECENTS, text })
-export const clearRecentsAction = () => ({ type: types.CLEAR_RECENTS })
 export const openLeftDrawerAction = () => ({ type: types.OPEN_LEFT_DRAWER })
 export const openRightDrawerAction = () => ({ type: types.OPEN_RIGHT_DRAWER })
 export const closeDrawerAction = () => ({ type: types.CLOSE_DRAWER })
@@ -20,12 +19,15 @@ export const scrapeWebsiteAction = () => {
   return (dispatch, getState) => {
     const { query } = getState()
     dispatch(clearQueryAction())
+    if (query.text.length > 0) {
+      dispatch(addRecentsAction(query.text))
+    }
     axios({
       method: 'post',
       baseURL: BASE_URL,
       url: '/preview',
       params: {
-        text: query
+        text: query.text
       }
     })
     .then((response) => {
@@ -34,7 +36,6 @@ export const scrapeWebsiteAction = () => {
       message.success("Success")
     })
     .catch((error) => {
-      console.log(error.response.data)
       message.error(error.response.data.error.message)
     })
   }
