@@ -29,12 +29,16 @@ Clone this repo to your local machine using `https://github.com/jama5262/react-l
 
 ### Setup
 To get started, cd into the project and follow the following steps
-1. #### Create a `.env` file
+1. #### Switch to `server` branch
+```
+git checkout server
+```
+2. #### Create a `.env` file
 Create a `.env` file and add the following port number (you can choose your preferred port number ***but make sure NOT TO USE port `3000` if you also set up the [React frontend](https://github.com/jama5262/react-link-previewer) which also uses port `3000`***)
 ```
 PORT=5000
 ```
-2. #### Installing all packages
+3. #### Installing all packages
 After creating the `.env` file run the following to install all the packages needed
 ```
 npm install
