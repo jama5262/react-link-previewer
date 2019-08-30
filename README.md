@@ -1,6 +1,8 @@
 # React Link Previewer (Client Side)
 This is a simple react app that displays a visual preview and brief description of the link or links passed
 
+### To view the app clicke [here](https://react-link-preview.herokuapp.com/)
+
 #### To view the Express backend, change to `server` branch or click [here](https://github.com/jama5262/react-link-previewer/tree/server)
 
 ## Original Designs can be found here
