@@ -3,7 +3,7 @@ This is a simple react app that displays a visual preview and brief description 
 
 ### To view the app click [here](https://react-link-preview.herokuapp.com/)
 
-#### To view the Express backend, change to `server` branch or click [here](https://github.com/jama5262/react-link-previewer/tree/server)
+## To view the Express backend, change to `server` branch or click [here](https://github.com/jama5262/react-link-previewer/tree/server)
 
 ## Original Designs can be found here
 [Original Figma Designs](https://www.figma.com/file/h4GXGbJL8x37EL63UDfVst/React-Link-Previewer?node-id=0%3A1) 🎨
