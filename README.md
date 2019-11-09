@@ -1,6 +1,9 @@
 # React Link Previewer (Client Side)
 This is a simple react app that displays a visual preview and brief description of the link or links passed
 
+[![Build Status](https://travis-ci.org/jama5262/react-link-previewer.svg?branch=server)](https://travis-ci.org/jama5262/react-link-previewer)
+[![Coverage Status](https://coveralls.io/repos/github/jama5262/react-link-previewer/badge.svg?branch=server)](https://coveralls.io/github/jama5262/react-link-previewer?branch=server)
+
 ### To view the app click [here](https://react-link-preview.herokuapp.com/)
 
 ## To view the Express backend, change to `server` branch or click [here](https://github.com/jama5262/react-link-previewer/tree/server)
